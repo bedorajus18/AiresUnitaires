@@ -25,9 +25,10 @@ class AireCalculator
     /*calcul surface disque */
     function getAireDisque($pPi,$pRayon):float
     {
-        if ($pRayon <=0)
+        $pPi = pi();
+        if ($pRayon <=0 || $pRayon > 100)
         throw 
-            new \InvalidArgumentException('Le rayon doit être positif'.$pRayon);
+            new \InvalidArgumentException('Le rayon doit être positif'.$pRayon.' ou trop grand pour être dessiné. ');
         return Pi()*$pRayon*$pRayon;
     }
 }

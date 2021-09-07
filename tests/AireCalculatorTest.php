@@ -32,8 +32,9 @@ public function test_calcul_surface_tri_neg():void
 }
     
    /** @test */
-    public function test_calc_aire_parallelogramme($pLongueurBase,$pHauteur):float
+    public function test_calc_aire_parallelogramme():void
     {
+        $aireCalculator  = new AireCalculator();
         $pLongueurBase=6;
         $pHauteur=5; 
         $resultat = $aireCalculator->getAireParallelogramme($pLongueurBase,$pHauteur);
@@ -44,9 +45,19 @@ public function test_calcul_surface_tri_neg():void
     {
     $this->expectException(\InvalidArgumentException::class);
     $aireCalculator  = new AireCalculator();
+    $longueurBase=6;
+    $hauteur=-5;
+    $resultat = $aireCalculator->getAireParallelogramme($longueurBase,$hauteur);
+
+    }
+    /**@test */
+    public function test_calcul_surface_parallelogramme_exp():void
+    {
+    $this->expectException(\InvalidArgumentException::class);
+    $aireCalculator  = new AireCalculator();
     $longueurBase=-6;
     $hauteur=-5;
-    $resultat = $aireCalculator->getAireParallelogramme($pLongueurBase,$pHauteur);
+    $resultat = $aireCalculator->getAireParallelogramme($longueurBase,$hauteur);
 
     }
     /*calcul surface disque */
